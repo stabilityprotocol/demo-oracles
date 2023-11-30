@@ -24,7 +24,7 @@ export class OracleContract {
           );
 
           this.wallet.getTransactionCount().then((nonce) => {
-                this.nonce = nonce;
+                this.nonce = nonce + 1;
           })
     }
 

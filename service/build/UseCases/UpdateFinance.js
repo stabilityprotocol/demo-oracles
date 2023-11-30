@@ -22,7 +22,6 @@ let UpdateFinance = class UpdateFinance {
         this.oracleContract = oracleContract;
     }
     async execute() {
-        console.log("Updating finance...");
         const financeData = await this.financeDataProvider.getCurrentFinance();
         for (let data of financeData) {
             await this.oracleContract.setValue(data.pair, data.price);

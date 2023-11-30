@@ -18,6 +18,7 @@ var City;
     City["TORONTO"] = "TORONTO";
     City["NEW_YORK_CITY"] = "NEW_YORK_CITY";
     City["ANDORRA_LA_VELLA"] = "ANDORRA_LA_VELLA";
+    City["SINGAPORE"] = "SINGAPORE";
 })(City || (City = {}));
 exports.responseOpenWeatherSchema = zod_1.z.object({
     main: zod_1.z.object({
@@ -37,6 +38,8 @@ let WeatherDataProvider = class WeatherDataProvider {
                 return { lat: 40.76, lon: -73.97 };
             case City.ANDORRA_LA_VELLA:
                 return { lat: 42.51, lon: 1.52 };
+            case City.SINGAPORE:
+                return { lat: 1.35, lon: 103.82 };
             default:
                 return (0, Enum_1.exhaustiveCheck)(city);
         }

@@ -31,6 +31,12 @@ export const OracleABI = [
 				"internalType": "string",
 				"name": "value",
 				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "blockNumber",
+				"type": "uint256"
 			}
 		],
 		"name": "ValueSet",
@@ -48,11 +54,16 @@ export const OracleABI = [
 		"outputs": [
 			{
 				"internalType": "string",
-				"name": "",
+				"name": "value",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "blockNumber",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
 		"type": "function"
 	}
-]
+] as const;

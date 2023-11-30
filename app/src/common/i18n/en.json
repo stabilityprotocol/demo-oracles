@@ -1,0 +1,107 @@
+{
+    "pages": {
+        "erc20": {
+            "invalidStep": "Invalid step",
+            "step1": {
+                "title": "LET'S MAKE A TOKEN",
+                "tokenName": "Token Name",
+                "tokenSymbol": "Token Symbol",
+                "amountToMint": "Amount to Mint",
+                "action": "Mint"
+            },
+            "step2": {
+                "title": "CONFIRM YOUR TOKEN",
+                "back": "Back",
+                "confirm": "Confirm",
+                "loading": "Check your Wallet",
+                "error": "Error deploying your token, review your information and try again.",
+                "validation": {
+                    "title": "Please review your token information before continue:",
+                    "wrongNetwork": "Wrong Network, please change your wallet to Stability network."
+                }
+            },
+            "step3": {
+                "title": "SUCCESS!",
+                "action": "Add Token to Wallet",
+                "actionBack": "Create another token",
+                "tokenDetail": {
+                    "title": "Congratulations! This is your new token:",
+                    "name": "Token Name",
+                    "symbol": "Token Symbol",
+                    "address": "Token Address",
+                    "transactionHash": "Transaction Hash",
+                    "blockNumber": "Block Number"
+                }
+            }
+        },
+        "erc1155": {
+            "invalidStep": "Invalid step",
+            "step1": {
+                "title": "LET'S MAKE AN NFT",
+                "tokenName": "Collection Name",
+                "dropzoneDescription": "Drop your image here or click to select"
+            },
+            "step2": {
+                "error": "Error deploying your NFT, review your information and try again.",
+                "validation": {
+                    "title": "Please review your NFT information before continue:",
+                    "wrongNetwork": "Wrong Network, please change your wallet to Stability network.",
+                    "noImage": "Please upload an image"
+                }
+            },
+            "step3": {
+                "title": "SUCCESS!",
+                "actionBack": "Create another NFT",
+                "tokenDetail": {
+                    "title": "Congratulations! This is your new NFT:",
+                    "name": "Token Name",
+                    "address": "Token Address",
+                    "metadata": "Metadata URL",
+                    "transactionHash": "Transaction Hash",
+                    "blockNumber": "Block Number"
+                }
+            }
+        }
+    },
+    "components": {
+        "footer": {
+            "copyright": "COPYRIGHT © 2023 STABILITY SOLUTIONS INC. ALL RIGHTS RESERVED.",
+            "contactUs": "CONTACT US",
+            "followUs": "FOLLOW US",
+            "addStability": "ADD STABILITY"
+        },
+        "header": {
+            "upgrade": "Upgrade",
+            "docs": "Docs",
+            "networks": {
+                "testnet": "Testnet",
+                "mainnet": "Mainnet",
+                "invalid": "Invalid Network"
+            },
+            "web3": {
+                "copyAddress": "Copy Address",
+                "logOut": "Log Out",
+                "explorer": "Explorer"
+            }
+        },
+        "connectionModal": {
+            "title": "Manage your access to the Stability Ecosystem",
+            "email": "EMAIL",
+            "newUser": "NEW USER",
+            "magiclink": "MAGICLINK",
+            "magiclinkNoModals": "MAGICLINK (NO MODALS)",
+            "metamask": "METAMASK"
+        }
+    },
+    "links": {
+        "explorer": "https://stability-testnet.blockscout.com/",
+        "explorerTx": "https://stability-testnet.blockscout.com/tx/{{hash}}",
+        "explorerBlock": "https://stability-testnet.blockscout.com/block/{{blockNumber}}",
+        "explorerAddress": "https://stability-testnet.blockscout.com/address/{{address}}",
+        "docs": "https://docs.stabilityprotocol.com/",
+        "contactForm": "https://us21.list-manage.com/contact-form?u=8afbcbdb9e4fdad91bd87ce22&form_id=9e39027f0e20b64fe0eb9a79af776a0c",
+        "x": "https://x.com/stabilityinc",
+        "linkedin": "https://www.linkedin.com/company/stabilitysolutions/",
+        "testnet-api": "https://vzahfimc4y.us-east-2.awsapprunner.com/api"
+    }
+}

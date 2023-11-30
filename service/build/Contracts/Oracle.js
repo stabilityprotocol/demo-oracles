@@ -18,12 +18,11 @@ let OracleContract = class OracleContract {
     constructor() {
         this.callQueue = [];
         this.nonce = 0;
-        this.lastNonceUpdateTime = 0;
         const provider = new ethers_1.ethers.providers.JsonRpcProvider(Config_1.config.RPC_URL);
         this.wallet = new ethers_1.ethers.Wallet(Config_1.config.WALLET_PRIVATE_KEY, provider);
         this.contract = new ethers_1.ethers.Contract(Config_1.config.ORACLE_ADDRESS, Oracle_1.OracleABI, this.wallet);
         this.wallet.getTransactionCount().then((nonce) => {
-            this.nonce = nonce;
+            this.nonce = nonce + 1;
         });
     }
     async setValue(key, value) {
