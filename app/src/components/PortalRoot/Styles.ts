@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import heroBg from "../../assets/hero.png";
 import { mediaSizes } from "../../common/Theme";
 
 export const PortalRootWrapper = styled.div`
@@ -7,7 +6,6 @@ export const PortalRootWrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: url(${heroBg}) no-repeat fixed center;
   background-size: cover;
 
   @media ${mediaSizes.portableQuery} {

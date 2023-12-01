@@ -18,4 +18,8 @@ export const OracleValueWrapper = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-gap: ${(props) => props.theme.spacing.medium};
     padding: ${(props) => props.theme.spacing.small};
+    justify-items: center;
+    @media ${mediaSizes.portableQuery} {
+        grid-template-columns: 1fr;
+    }
 `;

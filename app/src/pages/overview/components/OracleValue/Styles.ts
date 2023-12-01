@@ -8,7 +8,8 @@ export const OracleValueWrapper = styled.div`
     justify-content: space-between;
     padding: ${(props) => props.theme.spacing.small};
     background: ${(props) => props.theme.colors.neutral};
-    border: 1px solid ${(props) => props.theme.colors.dark0};
+    border: 1px solid ${(props) => props.theme.colors.blue0};
+    border-radius: 0.5rem;
     width: 25rem;
 `;
 

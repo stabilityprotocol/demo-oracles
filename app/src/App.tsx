@@ -3,7 +3,6 @@ import { ThemeProvider } from "styled-components";
 import { Theme } from "./common/Theme";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { PortalRoot } from "./components/PortalRoot";
-import { WagmiConfig } from "wagmi";
 import { RecoilRoot } from "recoil";
 import { ToastContainer } from "react-toastify";
 

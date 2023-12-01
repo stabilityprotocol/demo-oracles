@@ -1,8 +1,4 @@
-import { DedicatedWalletConnector } from "@magiclabs/wagmi-connector";
-import { configureChains } from "@wagmi/core";
-import { publicProvider } from "@wagmi/core/providers/public";
-import { Chain, createConfig } from "wagmi";
-import { InjectedConnector } from "wagmi/connectors/injected";
+import { Chain } from "wagmi";
 
 export const stbleTestnet: Chain = {
   id: 20180427,

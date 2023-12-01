@@ -17,7 +17,25 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background: linear-gradient(36deg, #00FFCB, #506FD0);
+  background-size: 400% 400%;
+  animation: GradientBackground 18s ease infinite;
 }
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+};
+
 
 @media (max-width: 600px) {
   html,
