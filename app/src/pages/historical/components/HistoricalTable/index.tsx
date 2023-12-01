@@ -50,7 +50,7 @@ const columns = [
             const value = info.getValue();
             const displayValue = shortAddress(value);
             const url = `${stbleTestnet.blockExplorers?.default.url}tx/${value}`
-            return <TransactionLink href={url}>{displayValue}</TransactionLink>;
+            return <TransactionLink href={url} target="_blank">{displayValue}</TransactionLink>;
         },
         header: _ => "Transaction Hash",
     }),

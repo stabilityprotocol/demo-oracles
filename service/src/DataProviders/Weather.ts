@@ -44,6 +44,10 @@ export class WeatherDataProvider {
         }
     }
 
+    private kelvinToFahrenheit(kelvin: number): number {
+        return (kelvin - 273.15) * 9/5 + 32;
+    }
+
     public async getCurrentWeather(): Promise<Weather[]> {
         const cities = Object.values(City);
         const weathers = await Promise.all(cities.map(async city => {
@@ -56,7 +60,7 @@ export class WeatherDataProvider {
             
             return {
                 city,
-                temperature: parsedData.main.temp
+                temperature: this.kelvinToFahrenheit(parsedData.main.temp)
             }
         }));
         return weathers;

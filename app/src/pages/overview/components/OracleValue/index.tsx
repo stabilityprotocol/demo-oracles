@@ -117,7 +117,7 @@ export const OracleValue = (
                     <OracleNumber>{oracleValue}</OracleNumber>
                     <OracleNumberUnit>{oracleUnit}</OracleNumberUnit>
                 </OracleValueUnitWrapper>
-                <OracleLinkToBlock href={urlToBlock}>{blocksAgo} blocks ago</OracleLinkToBlock>
+                <OracleLinkToBlock href={urlToBlock} target="_blank">{blocksAgo} blocks ago</OracleLinkToBlock>
             </OracleNumberWrapper>
         </OracleValueWrapper>
     );
