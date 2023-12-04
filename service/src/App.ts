@@ -8,6 +8,7 @@ import { CronjobsTasks } from './Cronjobs/Cronjob';
 import { UpdateFinance } from './UseCases/UpdateFinance';
 import { FinanceDataProvider } from './DataProviders/Finance';
 import { OracleContract } from './Contracts/Oracle';
+import express from "express";
 
 export const container = new Container();
 
@@ -22,3 +23,16 @@ container.bind(OracleContract).toSelf().inSingletonScope();
 const cronjobsTasks = container.get(CronjobsTasks);
 
 cronjobsTasks.start();
+
+const app = express();
+
+app.get('/healthcheck', (_, res) => {
+  res.send('OK');
+});
+
+app.listen(8080, () => {
+  console.log('Healthcheck running on port 8080');
+});
+
+
+
