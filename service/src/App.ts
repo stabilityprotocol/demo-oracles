@@ -24,15 +24,3 @@ const cronjobsTasks = container.get(CronjobsTasks);
 
 cronjobsTasks.start();
 
-const app = express();
-
-app.get('/healthcheck', (_, res) => {
-  res.send('OK');
-});
-
-app.listen(8080, () => {
-  console.log('Healthcheck running on port 8080');
-});
-
-
-
