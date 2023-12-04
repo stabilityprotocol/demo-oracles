@@ -1,11 +1,11 @@
 {
     "pages": {
         "overview": {
-            "title": "Overview",
+            "title": "Stability Oracles - Overview",
             "blocksAgo": "blocks ago"
         },
         "historical": {
-            "title": "Historical",
+            "title": "Stability Oracles - Historical",
             "table": {
                 "transactionHash": "Transaction Hash",
                 "oracle": "Oracle",
