@@ -37,10 +37,11 @@ export const HistoricalTableStyled = styled.table`
         background: ${(props) => props.theme.colors.bgBlue};
         color: ${(props) => props.theme.colors.neutral};
     }
+`;
 
-    tbody {
-        font-family: ${(props) => props.theme.font.primary};
-    }
+export const HistoricalTableTBody = styled.tbody`
+    font-family: ${(props) => props.theme.font.secondary};
+    font-size: 0.9rem;
 `;
 
 export const TransactionLink = styled.a`

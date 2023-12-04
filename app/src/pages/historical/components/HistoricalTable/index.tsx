@@ -5,7 +5,7 @@ import {
     useReactTable,
     getPaginationRowModel
   } from '@tanstack/react-table'
-import { HistoricalTableStyled, HistoricalTableWrapper, PaginationButton, PaginationWrapper, TransactionLink } from './Styles';
+import { HistoricalTableStyled, HistoricalTableTBody, HistoricalTableWrapper, PaginationButton, PaginationWrapper, TransactionLink } from './Styles';
 import { OracleTransaction, oracleTransactionsAtom } from '../../../../common/State/OracleTransactions';
 import { useRecoilState } from 'recoil';
 import { stbleTestnet } from '../../../../common/Blockchain';
@@ -111,7 +111,7 @@ export const HistoricalTable = () => {
                             </tr>
                         ))}
                     </thead>
-                    <tbody>
+                    <HistoricalTableTBody>
                         {table.getRowModel().rows.map(row => (
                             <tr key={row.id}>
                                 {row.getVisibleCells().map(cell => (
@@ -121,7 +121,7 @@ export const HistoricalTable = () => {
                                 ))}
                             </tr>
                         ))}
-                    </tbody>
+                    </HistoricalTableTBody>
                 </HistoricalTableStyled>
 
 
