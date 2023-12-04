@@ -1,6 +1,7 @@
 import { injectable } from "inversify";
 import { z } from "zod";
 import { exhaustiveCheck } from "../Utils/Enum";
+import fetch from "node-fetch";
 
 export enum KrakenPair {
     "BTC/USD" = "BTC/USD",
