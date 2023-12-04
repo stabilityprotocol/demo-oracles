@@ -10,6 +10,7 @@ export class OracleContract {
     private callQueue: Array<{key: string, value: string}> = [];
     private wallet: Wallet
     private nonce: number | undefined = 0;
+    private lastNonce: number | undefined = 0;
 
     constructor() {
         const provider = new ethers.providers.JsonRpcProvider(
@@ -24,9 +25,7 @@ export class OracleContract {
             this.wallet
           );
 
-          this.wallet.getTransactionCount().then((nonce) => {
-                this.nonce = nonce;
-          })
+          this.resyncNonce();
     }
 
     async setValue(key: string, value: string): Promise<void> {
@@ -49,8 +48,6 @@ export class OracleContract {
 
             const {key, value} = element;
 
-            
-
             const nonce = this.nonce;
             this.nonce++;
 
@@ -58,5 +55,21 @@ export class OracleContract {
         
             await this.contract.setValue(key, value, {nonce: nonce, gasPrice: 0});
         }
+    }
+
+    private async resyncNonce(): Promise<void> {
+        this.nonce = await this.wallet.getTransactionCount();
+        this.lastNonce = this.nonce;
+        setInterval(async () => {
+            console.log("Checking nonce");
+            const actuallyNonce = await this.wallet.getTransactionCount();
+
+            if (actuallyNonce === this.lastNonce) {
+                this.nonce = actuallyNonce;
+                console.log("Nonce is stuck, resyncing");
+            }
+            this.lastNonce = actuallyNonce;
+
+        }, 30000);
     }
 }
