@@ -2,13 +2,14 @@ import { ethers, Contract, Wallet } from "ethers";
 import { config } from "../Config";
 import { OracleABI } from "../ABI/Oracle";
 import { injectable } from "inversify";
+import { exit } from "process";
 
 @injectable()
 export class OracleContract {
     private contract: Contract;
     private callQueue: Array<{key: string, value: string}> = [];
     private wallet: Wallet
-    private nonce: number = 0;
+    private nonce: number | undefined = 0;
 
     constructor() {
         const provider = new ethers.providers.JsonRpcProvider(
@@ -24,7 +25,7 @@ export class OracleContract {
           );
 
           this.wallet.getTransactionCount().then((nonce) => {
-                this.nonce = nonce === 0 ? 0 : nonce + 1;
+                this.nonce = nonce;
           })
     }
 
@@ -34,6 +35,10 @@ export class OracleContract {
     }
 
     private async handleQueue(): Promise<void> {
+        if (!this.nonce) {
+            return;
+        }
+    
         if (this.callQueue.length > 0) {
 
             const element = this.callQueue.shift();
@@ -52,7 +57,6 @@ export class OracleContract {
             console.log(`Setting ${key} to ${value} with nonce ${nonce}`);
         
             await this.contract.setValue(key, value, {nonce: nonce, gasPrice: 0});
-
         }
     }
 }
