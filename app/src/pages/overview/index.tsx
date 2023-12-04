@@ -1,12 +1,17 @@
+import { useTranslation } from "react-i18next";
 import { OracleKey } from "../../common/Oracle/Types";
 import { OracleValueWrapper, OverviewWrapper } from "./Styles";
 import { OracleValue } from "./components/OracleValue";
+import { Helmet } from 'react-helmet';
 
 export const Overview = () => {
-
+    const { t } = useTranslation();
 
     return (
-        <>
+        <>   
+            <Helmet>
+                <title>{t("pages.overview.title")}</title>
+            </Helmet>
             <OverviewWrapper>
                 <OracleValueWrapper>
                     <OracleValue type={OracleKey["BTC/USD"]}/>

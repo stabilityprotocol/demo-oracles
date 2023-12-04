@@ -1,67 +1,31 @@
 {
     "pages": {
-        "erc20": {
-            "invalidStep": "Invalid step",
-            "step1": {
-                "title": "LET'S MAKE A TOKEN",
-                "tokenName": "Token Name",
-                "tokenSymbol": "Token Symbol",
-                "amountToMint": "Amount to Mint",
-                "action": "Mint"
-            },
-            "step2": {
-                "title": "CONFIRM YOUR TOKEN",
-                "back": "Back",
-                "confirm": "Confirm",
-                "loading": "Check your Wallet",
-                "error": "Error deploying your token, review your information and try again.",
-                "validation": {
-                    "title": "Please review your token information before continue:",
-                    "wrongNetwork": "Wrong Network, please change your wallet to Stability network."
-                }
-            },
-            "step3": {
-                "title": "SUCCESS!",
-                "action": "Add Token to Wallet",
-                "actionBack": "Create another token",
-                "tokenDetail": {
-                    "title": "Congratulations! This is your new token:",
-                    "name": "Token Name",
-                    "symbol": "Token Symbol",
-                    "address": "Token Address",
-                    "transactionHash": "Transaction Hash",
-                    "blockNumber": "Block Number"
-                }
-            }
+        "overview": {
+            "title": "Overview",
+            "blocksAgo": "blocks ago"
         },
-        "erc1155": {
-            "invalidStep": "Invalid step",
-            "step1": {
-                "title": "LET'S MAKE AN NFT",
-                "tokenName": "Collection Name",
-                "dropzoneDescription": "Drop your image here or click to select"
-            },
-            "step2": {
-                "error": "Error deploying your NFT, review your information and try again.",
-                "validation": {
-                    "title": "Please review your NFT information before continue:",
-                    "wrongNetwork": "Wrong Network, please change your wallet to Stability network.",
-                    "noImage": "Please upload an image"
-                }
-            },
-            "step3": {
-                "title": "SUCCESS!",
-                "actionBack": "Create another NFT",
-                "tokenDetail": {
-                    "title": "Congratulations! This is your new NFT:",
-                    "name": "Token Name",
-                    "address": "Token Address",
-                    "metadata": "Metadata URL",
-                    "transactionHash": "Transaction Hash",
-                    "blockNumber": "Block Number"
-                }
+        "historical": {
+            "title": "Historical",
+            "table": {
+                "transactionHash": "Transaction Hash",
+                "oracle": "Oracle",
+                "value": "Value",
+                "blockNumber": "Block Number",
+                "date": "Date"
             }
         }
+    },
+    "oracles": {
+        "BTC/USD": "BTC/USD",
+        "ETH/USD": "ETH/USD",
+        "LOS_ANGELES": "Los Angeles",
+        "ANDORRA_LA_VELLA": "Andorra La Vella",
+        "MADRID": "Madrid",
+        "NEW_YORK_CITY": "NYC",
+        "TORONTO": "Toronto",
+        "SINGAPORE": "Singapore",
+        "CAD/USD": "CAD/USD",
+        "EUR/USD": "EUR/USD"
     },
     "components": {
         "footer": {

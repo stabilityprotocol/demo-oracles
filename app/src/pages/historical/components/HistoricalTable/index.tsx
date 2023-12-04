@@ -10,77 +10,54 @@ import { OracleTransaction, oracleTransactionsAtom } from '../../../../common/St
 import { useRecoilState } from 'recoil';
 import { stbleTestnet } from '../../../../common/Blockchain';
 import { shortAddress } from '../../../../common/ETH';
+import { useTranslation } from 'react-i18next';
 
 
 
 
-const columnHelper = createColumnHelper<OracleTransaction>()
 
-function getOracleTitle(oracleKey: string) {
-    switch (oracleKey) {
-        case "BTC/USD":
-            return "BTC/USD";
-        case "ETH/USD":
-            return "ETH/USD";
-        case "LOS_ANGELES":
-            return "Los Angeles";
-        case "ANDORRA_LA_VELLA":
-            return "Andorra La Vella";
-        case "MADRID":
-            return "Madrid";
-        case "NEW_YORK_CITY":
-            return "NYC";
-        case "TORONTO":
-            return "Toronto";
-        case "SINGAPORE":
-            return "Singapore";
-        case "CAD/USD":
-            return "CAD/USD";
-        case "EUR/USD":
-            return "EUR/USD";
 
-        default:
-            return "";
-    }
-}
-
-const columns = [
-    columnHelper.accessor("hash", {
-        cell: info => {
-            const value = info.getValue();
-            const displayValue = shortAddress(value);
-            const url = `${stbleTestnet.blockExplorers?.default.url}tx/${value}`
-            return <TransactionLink href={url} target="_blank">{displayValue}</TransactionLink>;
-        },
-        header: _ => "Transaction Hash",
-    }),
-    columnHelper.accessor("oracleKey", {
-        cell: info => getOracleTitle(info.getValue()),
-        header: _ => "Oracle",
-    }),
-    columnHelper.accessor("value", {
-        cell: info => {
-            const value = parseFloat(info.getValue());
-            return value.toFixed(2);
-        },
-        header: _ => "Value",
-    }),
-    columnHelper.accessor("blockNumber", {
-        cell: info => info.getValue(),
-        header: _ => "Block",
-    }),
-    columnHelper.accessor("timestamp", {
-        cell: info => {
-            const timestamp = info.getValue();
-            const date = new Date(timestamp);
-            return date.toLocaleString(navigator.language);
-        },
-        header: _ => "Date",
-    }),
-]
 
 export const HistoricalTable = () => {
     const [data] = useRecoilState<OracleTransaction[]>(oracleTransactionsAtom);
+
+    const { t } = useTranslation();
+
+    const columnHelper = createColumnHelper<OracleTransaction>()
+    const columns = [
+        columnHelper.accessor("hash", {
+            cell: info => {
+                const value = info.getValue();
+                const displayValue = shortAddress(value);
+                const url = `${stbleTestnet.blockExplorers?.default.url}tx/${value}`
+                return <TransactionLink href={url} target="_blank">{displayValue}</TransactionLink>;
+            },
+            header: _ => t("pages.historical.table.transactionHash"),
+        }),
+        columnHelper.accessor("oracleKey", {
+            cell: info => getOracleTitle(info.getValue()),
+            header: _ => t("pages.historical.table.oracle"),
+        }),
+        columnHelper.accessor("value", {
+            cell: info => {
+                const value = parseFloat(info.getValue());
+                return value.toFixed(2);
+            },
+            header: _ => t("pages.historical.table.value"),
+        }),
+        columnHelper.accessor("blockNumber", {
+            cell: info => info.getValue(),
+            header: _ => t("pages.historical.table.blockNumber"),
+        }),
+        columnHelper.accessor("timestamp", {
+            cell: info => {
+                const timestamp = info.getValue();
+                const date = new Date(timestamp);
+                return date.toLocaleString(navigator.language);
+            },
+            header: _ => t("pages.historical.table.date"),
+        }),
+    ]
 
     const table = useReactTable({
         data,
@@ -88,6 +65,34 @@ export const HistoricalTable = () => {
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
     })
+
+
+    const getOracleTitle = (oracleKey: string) => {
+        switch (oracleKey) {
+            case "BTC/USD":
+                return t("oracles.BTC/USD")
+            case "ETH/USD":
+                return t("oracles.ETH/USD");
+            case "LOS_ANGELES":
+                return t("oracles.LOS_ANGELES");
+            case "ANDORRA_LA_VELLA":
+                return t("oracles.ANDORRA_LA_VELLA");
+            case "MADRID":
+                return t("oracles.MADRID");
+            case "NEW_YORK_CITY":
+                return t("oracles.NEW_YORK_CITY");
+            case "TORONTO":
+                return t("oracles.TORONTO");
+            case "SINGAPORE":
+                return t("oracles.SINGAPORE");
+            case "CAD/USD":
+                return t("oracles.CAD/USD");
+            case "EUR/USD":
+                return t("oracles.EUR/USD");
+            default:
+                return "";
+        }
+    }
 
 
 

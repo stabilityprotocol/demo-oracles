@@ -10,6 +10,7 @@ import { oracleAtom } from "../../../../common/State/Oracle";
 import { useMemo } from "react";
 import { currentBlockAtom } from "../../../../common/State/CurrentBlock";
 import { stbleTestnet } from "../../../../common/Blockchain"
+import { useTranslation } from "react-i18next";
 
 
 
@@ -19,6 +20,8 @@ export const OracleValue = (
 
     const [ oracleState ] = useRecoilState(oracleAtom);
     const [ currentBlock ] = useRecoilState(currentBlockAtom);
+
+    const { t } = useTranslation();
 
     const oracleData = useMemo(() => {
         return oracleState[props.type] ?? {
@@ -41,26 +44,25 @@ export const OracleValue = (
     const oracleTitle = useMemo(() => {
         switch (props.type) {
             case OracleKey["BTC/USD"]:
-                return "BTC/USD";
+                return t("oracles.BTC/USD")
             case OracleKey["ETH/USD"]:
-                return "ETH/USD";
+                return t("oracles.ETH/USD");
             case OracleKey.LOS_ANGELES:
-                return "Los Angeles";
+                return t("oracles.LOS_ANGELES");
             case OracleKey.ANDORRA_LA_VELLA:
-                return "Andorra La Vella";
+                return t("oracles.ANDORRA_LA_VELLA");
             case OracleKey.MADRID:
-                return "Madrid";
+                return t("oracles.MADRID");
             case OracleKey.NEW_YORK_CITY:
-                return "NYC";
+                return t("oracles.NEW_YORK_CITY");
             case OracleKey.TORONTO:
-                return "Toronto";
+                return t("oracles.TORONTO");
             case OracleKey.SINGAPORE:
-                return "Singapore";
+                return t("oracles.SINGAPORE");
             case OracleKey["CAD/USD"]:
-                return "CAD/USD";
+                return t("oracles.CAD/USD");
             case OracleKey["EUR/USD"]:
-                return "EUR/USD";
-
+                return t("oracles.EUR/USD");
             default:
                 return "";
         }
@@ -117,7 +119,7 @@ export const OracleValue = (
                     <OracleNumber>{oracleValue}</OracleNumber>
                     <OracleNumberUnit>{oracleUnit}</OracleNumberUnit>
                 </OracleValueUnitWrapper>
-                <OracleLinkToBlock href={urlToBlock} target="_blank">{blocksAgo} blocks ago</OracleLinkToBlock>
+                <OracleLinkToBlock href={urlToBlock} target="_blank">{blocksAgo} {t("pages.overview.blocksAgo")}</OracleLinkToBlock>
             </OracleNumberWrapper>
         </OracleValueWrapper>
     );
