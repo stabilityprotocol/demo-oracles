@@ -2,7 +2,6 @@ import { exhaustiveCheck } from "../Utils/Enum";
 import { config } from "../Config";
 import { z } from "zod";
 import { injectable } from "inversify";
-import fetch from "node-fetch";
 
 enum City {
     MADRID = "MADRID",

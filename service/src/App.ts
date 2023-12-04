@@ -8,7 +8,6 @@ import { CronjobsTasks } from './Cronjobs/Cronjob';
 import { UpdateFinance } from './UseCases/UpdateFinance';
 import { FinanceDataProvider } from './DataProviders/Finance';
 import { OracleContract } from './Contracts/Oracle';
-import express from "express";
 
 export const container = new Container();
 
