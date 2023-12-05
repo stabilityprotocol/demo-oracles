@@ -19,7 +19,7 @@ export class UpdateFinance implements IUseCase<void> {
         
 
         for (let data of financeData) {
-            await this.oracleContract.setValue(data.pair, data.price);
+            this.oracleContract.setValue(data.pair, data.price);
         }
     }
 }

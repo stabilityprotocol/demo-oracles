@@ -19,7 +19,7 @@ export class UpdateWeather implements IUseCase<void> {
         const weatherData = await this.weatherDataProvider.getCurrentWeather();
         
         for (let data of weatherData) {
-            await this.oracleContract.setValue(data.city, data.temperature.toString());
+            this.oracleContract.setValue(data.city, data.temperature.toString());
         }
     }
 }
