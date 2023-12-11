@@ -5,10 +5,10 @@ export const HistoricalTableWrapper = styled.div`
     max-width: 100%;
     overflow-x: auto;
     margin: auto;
-    width: 70%; // Ocupa el 80% del ancho en dispositivos grandes
+    width: 70%;
 
-    @media ${mediaSizes.portableQuery} { // Cuando la pantalla es menor o igual a 768px (típicamente dispositivos móviles)
-        width: 80%; // Ocupa el 95% del ancho en dispositivos móviles
+    @media ${mediaSizes.portableQuery} {
+        width: 80%;
     }
 `;
 

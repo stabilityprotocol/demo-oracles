@@ -13,11 +13,6 @@ import { shortAddress } from '../../../../common/ETH';
 import { useTranslation } from 'react-i18next';
 
 
-
-
-
-
-
 export const HistoricalTable = () => {
     const [data] = useRecoilState<OracleTransaction[]>(oracleTransactionsAtom);
 
