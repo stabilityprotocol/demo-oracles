@@ -13,7 +13,7 @@ export const stbleTestnet: Chain = {
   blockExplorers: {
     default: {
       name: "Stability Testnet",
-      url: "https://stability-testnet.blockscout.com/"
+      url: "https://stability-testnet.blockscout.com/",
     },
   },
   rpcUrls: {
@@ -27,17 +27,13 @@ export const stbleTestnet: Chain = {
   contracts: {
     multicall3: {
       // https://raw.githubusercontent.com/mds1/multicall/main/src/Multicall3.sol
-      address: "0xFa8464fD7d2b92F147e7DF50593ce47358859aa7",
-      blockCreated: 453,
+      address: "0x3ed62137c5DB927cb137c26455969116BF0c23Cb",
+      blockCreated: 2318,
     },
   },
 };
 
-export const oracleContractAddress = "0x69B8555935199cB119C13f897B8b4CF020A6002b";
+export const oracleContractAddress =
+  "0xC26CeeFd4e58288e44CDC445D23D43D5202983f9";
 
 export const explorerApi = "https://stability-testnet.blockscout.com/api/v2";
-
-export const testnetFactories = {
-  erc20Factory: "0x175351a38a16e60E20b3989E1566B5CC603bD493",
-  erc1155Factory: "0x59026F4168fb26a0bFc8C5155C9B59d0DF2fD001",
-} as const;
